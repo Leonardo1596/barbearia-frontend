@@ -14,22 +14,26 @@ const Index = () => {
   const { startDate, endDate } = getMonthDates();
   const [reportData, setReportData] = useState(null);
   const [appointmentData, setAppointmentData] = useState(null);
+  const [allAppointments, setAllAppointments] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [reportRes, appointmentRes] = await Promise.all([
+        const [reportRes, appointmentRes, allAppointmentsRes] = await Promise.all([
           api.get(`partial-monthly-report/${user.barbershop}?startDate=${startDate}&endDate=${endDate}`),
-          api.get(`get_appointement/${user.barbershop}?startDate=${startDate}&endDate=${endDate}`)
+          api.get(`get_appointement/${user.barbershop}?startDate=${startDate}&endDate=${endDate}`),
+          api.get(`/get_all_appointements/${user.barbershop}`)
         ]);
         setReportData(reportRes.data);
         setAppointmentData(appointmentRes.data);
+        setAllAppointments(allAppointmentsRes.data);
       } catch (error) {
         console.error('Erro ao buscar dados', error);
       }
     }
     fetchData();
   }, []);
+
   return (
     <div>
       <C.Home>
@@ -123,7 +127,7 @@ const Index = () => {
           </C.CardContainer>
           <C.ContentWrapper>
             <Chart />
-            <List appointments={appointmentData} />
+            <List appointments={allAppointments} />
           </C.ContentWrapper>
         </C.Container>
       </C.Home >
