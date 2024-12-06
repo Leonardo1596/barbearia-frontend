@@ -15,12 +15,12 @@ export const ListContainer = styled.div`
 `;
 
 export const Title = styled.h4`
-    font-size: 0.875rem;
+    font-size: 0.813rem;
     color: #5a5a5a;
 `;
 
 export const CardList = styled.div`
-    margin-top: 40px;
+    margin-top: 30px;
     padding: 10px 0;
     display: flex;
     align-items: center;
