@@ -1,7 +1,7 @@
 import React from 'react';
 import * as C from './styles';
 import { logout } from '../../services/auth'
-import { FaTachometerAlt, FaCalendarAlt, FaDollarSign, FaBox, FaSignOutAlt, FaChartBar, FaCog, FaClipboardList } from 'react-icons/fa';
+import { FaTachometerAlt, FaCalendarAlt, FaDollarSign, FaBox, FaSignOutAlt, FaChartBar, FaCog, FaClipboardList, FaClock } from 'react-icons/fa';
 
 const Index = () => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -30,6 +30,10 @@ const Index = () => {
                         <C.Item>
                             <C.IconWrapper><C.Icon><FaClipboardList /></C.Icon></C.IconWrapper>
                             <span>Serviços</span>
+                        </C.Item>
+                        <C.Item>
+                            <C.IconWrapper><C.Icon><FaClock /></C.Icon></C.IconWrapper>
+                            <span>Horários</span>
                         </C.Item>
                         <C.Item>
                             <C.IconWrapper><C.Icon><FaChartBar  /></C.Icon></C.IconWrapper>
