@@ -12,6 +12,7 @@ const Index = () => {
         try {
             const response = await api.get(`/products/${user.barbershop}`);
             setproducts(response.data);
+            console.log(response.data);
         } catch (error) {
             console.error('Erro ao buscar produtos', error);
         }
@@ -37,7 +38,7 @@ const Index = () => {
                             <C.AddButton>Adicionar</C.AddButton>
                         </C.SearchContainer>
                     </C.HeaderContainer>
-                    <Table data={products} />
+                    {products ? <Table data={products} type='produtos' />: 'Carregando...'}
                 </C.Container>
             </C.Produtcs>
         </div>

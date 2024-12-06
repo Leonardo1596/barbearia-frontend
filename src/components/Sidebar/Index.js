@@ -19,7 +19,7 @@ const Index = () => {
                             <C.IconWrapper><C.Icon><FaTachometerAlt /></C.Icon></C.IconWrapper>
                             <span>Dashboard</span>
                         </C.Item>
-                        <C.Item>
+                        <C.Item href='/agendamentos'>
                             <C.IconWrapper><C.Icon><FaCalendarAlt /></C.Icon></C.IconWrapper>
                             <span>Agendamentos</span>
                         </C.Item>

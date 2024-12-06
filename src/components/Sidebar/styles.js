@@ -7,8 +7,8 @@ export const Sidebar = styled.div`
     color: #333;
     display: flex;
     align-items: center;
-    padding: 40px 0;
-`;
+    padding-top: 40px;
+    `;
 
 export const List = styled.ul`
     display: flex;

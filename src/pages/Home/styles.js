@@ -17,12 +17,19 @@ export const Container = styled.div`
     padding: 0 30px;
 `;
 
+export const ContentWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+`;
+
 export const TitleContainer = styled.div`
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 `;
 
 export const Title = styled.h1`
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     margin-bottom: 10px;
 `;
 

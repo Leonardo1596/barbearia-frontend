@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home/Index';
 import Login from './pages/Login/Index';
+import Appointments from './pages/Appointmentes/Index';
 import Products from './pages/Products/Index';
 import Navbar from './components/Navbar/Index';
 import Sidebar from './components/Sidebar/Index';
@@ -13,6 +14,7 @@ function App() {
       <Layout>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route path="/agendamentos" element={<Appointments />} />
           <Route path="/produtos" element={<Products />} />
           <Route path="/entrar" element={<Login />} />
         </Routes>
