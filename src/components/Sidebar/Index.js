@@ -4,7 +4,7 @@ import { logout } from '../../services/auth'
 import { FaTachometerAlt, FaCalendarAlt, FaDollarSign, FaBox, FaSignOutAlt, FaChartBar, FaCog, FaClipboardList, FaClock } from 'react-icons/fa';
 
 const Index = () => {
-    const user = JSON.parse(localStorage.getItem('user'));
+    // const user = JSON.parse(localStorage.getItem('user'));
 
     const handleLogout = async () => {
         const endSession = await logout();
@@ -27,7 +27,7 @@ const Index = () => {
                             <C.IconWrapper><C.Icon><FaDollarSign /></C.Icon></C.IconWrapper>
                             <span>Financeiro</span>
                         </C.Item>
-                        <C.Item>
+                        <C.Item href='/servicos'>
                             <C.IconWrapper><C.Icon><FaClipboardList /></C.Icon></C.IconWrapper>
                             <span>Serviços</span>
                         </C.Item>

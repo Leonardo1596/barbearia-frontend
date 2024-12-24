@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FaEdit, FaTrash, FaCheckSquare, FaSquare, FaTimes } from "react-icons/fa";
 
 // Tabela principal
 export const Table = styled.table`
@@ -43,3 +44,43 @@ export const TableRowBody = styled.tr`
     background-color: #f9f9f9;
   }
 `;
+
+export const IconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+`;
+
+export const EditIcon = styled(FaEdit)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #007bff;
+  cursor: pointer;
+`;
+
+export const TrashIcon = styled(FaTrash)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: red;
+  cursor: pointer;
+`;
+
+export const SyncIcon = styled(FaSquare)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #FFA500;
+  cursor: pointer;
+`;
+
+
+
+
+
+
+

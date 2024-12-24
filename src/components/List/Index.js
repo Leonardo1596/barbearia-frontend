@@ -22,7 +22,7 @@ const Index = ({ appointments }) => {
                     ))
                 ) : (
                     // Exibir dados reais quando a API já respondeu
-                    appointments && appointments.slice(0, 6).reverse().map((appointment, index) => (
+                    appointments && appointments.slice(0, 6).map((appointment, index) => (
                         <C.CardList key={appointment._id}>
                             <C.CardTitleContainer>
                                 <C.CardTitle>{appointment.client_name}</C.CardTitle>

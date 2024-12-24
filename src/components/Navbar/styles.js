@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaPlus, FaRegCircleUser, FaRegBell } from "react-icons/fa6";
+import { FaRegCircleUser, FaRegBell } from "react-icons/fa6";
 
 export const Navbar = styled.div`
     width: 100%;

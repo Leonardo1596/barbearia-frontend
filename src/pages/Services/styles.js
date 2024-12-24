@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 
-export const Produtcs = styled.div`
+
+export const Services = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;

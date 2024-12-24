@@ -21,8 +21,8 @@ const Index = () => {
       try {
         const [reportRes, appointmentRes, allAppointmentsRes] = await Promise.all([
           api.get(`partial-monthly-report/${user.barbershop}?startDate=${startDate}&endDate=${endDate}`),
-          api.get(`get_appointement/${user.barbershop}?startDate=${startDate}&endDate=${endDate}`),
-          api.get(`/get_all_appointements/${user.barbershop}`)
+          api.get(`get_appointment/${user.barbershop}?startDate=${startDate}&endDate=${endDate}`),
+          api.get(`/get_all_appointments/${user.barbershop}`)
         ]);
         setReportData(reportRes.data);
         setAppointmentData(appointmentRes.data);
@@ -70,17 +70,6 @@ const Index = () => {
               iconColor='#28a745'
             />
             <Card
-              title='Despesa Mensal'
-              content={!reportData ? (
-                <Skeleton width={100} height={15} />
-              ) : (
-                `R$ ${reportData.Total_despesas.toFixed(2).replace('.', ',')}`
-              )
-              }
-              iconName={FaCreditCard}
-              iconColor='#e74c3c'
-            />
-            <Card
               title='Ganho Semanal'
               content={!reportData ? (
                 <Skeleton width={100} height={15} />
@@ -90,6 +79,17 @@ const Index = () => {
               }
               iconName={FaChartArea}
               iconColor='#007bff'
+            />
+            <Card
+              title='Despesa Mensal'
+              content={!reportData ? (
+                <Skeleton width={100} height={15} />
+              ) : (
+                `R$ ${reportData.Total_despesas.toFixed(2).replace('.', ',')}`
+              )
+              }
+              iconName={FaCreditCard}
+              iconColor='#e74c3c'
             />
             <Card
               title='Serviços Realizados'
@@ -127,7 +127,7 @@ const Index = () => {
           </C.CardContainer>
           <C.ContentWrapper>
             <Chart />
-            <List appointments={allAppointments} />
+            <List appointments={allAppointments && allAppointments.reverse()} />
           </C.ContentWrapper>
         </C.Container>
       </C.Home >
