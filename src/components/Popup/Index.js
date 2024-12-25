@@ -66,6 +66,15 @@ const Index = ({ type, togglePopup, createProduct, createAppointment, createServ
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         if (type === 'agendamentos') {
+
+            if (name === 'date') {
+                setFormData({
+                    ...formData,
+                    [name]: value
+                });
+                return;
+            }
+
             setFormData({
                 ...formData,
                 [name]: value,
@@ -102,15 +111,12 @@ const Index = ({ type, togglePopup, createProduct, createAppointment, createServ
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            console.log(formData);
             if (type === 'agendamentos') {
                 if (!isEditing) {
-                    console.log('criando');
                     createAppointment(formData);
                     togglePopup();
                 } else {
-                    console.log('editando');
-                    console.log('Dados enviados para edição:', formData);
-                    console.log('data:', data);
                     const updatedData = {
                         ...data,
                         ...formData

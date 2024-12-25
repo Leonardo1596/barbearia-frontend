@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import * as C from './styles';
+import { parseISO, format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import Popup from '../Popup/Index';
 import ConfirmationPopup from '../ConfirmationPopup/Index';
 
@@ -104,7 +106,7 @@ const Index = ({ data, type, api, editAppointment }) => {
 
                     {type === 'agendamentos' && data.map((appointment, index) => (
                         <C.TableRow key={index}>
-                            <C.TableCell>{new Date(appointment.date).toLocaleDateString("pt-BR")}</C.TableCell>
+                            <C.TableCell>{new Date(appointment.date).toLocaleDateString("pt-BR", { timeZone: "UTC" })}</C.TableCell>
                             <C.TableCell>{appointment.client_name}</C.TableCell>
                             <C.TableCell>{appointment.hour}</C.TableCell>
                             <C.TableCell>{appointment.barber.name}</C.TableCell>
