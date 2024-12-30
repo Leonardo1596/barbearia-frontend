@@ -19,7 +19,7 @@ const Index = () => {
         try {
             const response = await api.get(`get_appointment/${user.barbershop}?startDate=${startDate}&endDate=${endDate}`);
             setAppointments(response.data);
-            console.log(response.data);
+            // console.log(response.data);
         } catch (error) {
             console.error('Erro ao buscar agendamentos', error);
         }
@@ -66,10 +66,27 @@ const Index = () => {
                         <C.SearchContainer>
                             <C.SearchIcon />
                             <C.SearchInput placeholder='Buscar por barbeiro' />
-                            <C.AddButton onClick={togglePopup}>Adicionar</C.AddButton>
+                            <C.AddButton onClick={togglePopup}>Criar agendamento</C.AddButton>
                         </C.SearchContainer>
                     </C.HeaderContainer>
-                    {appointments ? <Table data={appointments.reverse()} type='agendamentos' api={api} editAppointment={editAppointment} /> : 'Carergando...'}
+                    {appointments ? <Table data={appointments
+                        .sort((a, b) => {
+                            // Ordena por data primeiro
+                            const dateA = new Date(a.date);
+                            const dateB = new Date(b.date);
+
+                            if (dateA.getTime() !== dateB.getTime()) {
+                                return dateA - dateB; // Ordem crescente de data
+                            }
+
+                            // Se as datas forem iguais, ordena por hora
+                            const [hourA, minuteA] = a.hour.split(':').map(Number);
+                            const [hourB, minuteB] = b.hour.split(':').map(Number);
+                            const timeA = hourA * 60 + minuteA; // Converte para minutos totais
+                            const timeB = hourB * 60 + minuteB;
+
+                            return timeA - timeB; // Ordem crescente de hora
+                        })} type='agendamentos' api={api} editAppointment={editAppointment} /> : 'Carergando...'}
                 </C.Container>
             </C.Appointments>
         </div>

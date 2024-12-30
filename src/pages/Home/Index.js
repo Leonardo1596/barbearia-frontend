@@ -24,6 +24,8 @@ const Index = () => {
           api.get(`get_appointment/${user.barbershop}?startDate=${startDate}&endDate=${endDate}`),
           api.get(`/get_all_appointments/${user.barbershop}`)
         ]);
+        console.log(reportRes.data);
+        
         setReportData(reportRes.data);
         setAppointmentData(appointmentRes.data);
         setAllAppointments(allAppointmentsRes.data);

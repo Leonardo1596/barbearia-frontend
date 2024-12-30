@@ -104,24 +104,33 @@ const Index = ({ data, type, api, editAppointment }) => {
                         </C.TableRow>
                     ))}
 
-                    {type === 'agendamentos' && data.map((appointment, index) => (
-                        <C.TableRow key={index}>
-                            <C.TableCell>{new Date(appointment.date).toLocaleDateString("pt-BR", { timeZone: "UTC" })}</C.TableCell>
-                            <C.TableCell>{appointment.client_name}</C.TableCell>
-                            <C.TableCell>{appointment.hour}</C.TableCell>
-                            <C.TableCell>{appointment.barber.name}</C.TableCell>
-                            <C.TableCell>{`R$ ${appointment.service.reduce((acc, service) => acc + service.price, 0).toFixed(2).replace('.', ',')}`}</C.TableCell>
-                            <C.TableCell>{appointment.status}</C.TableCell>
-                            <C.TableCell>
-                                {/* Botões ou ações aqui */}
-                                <C.IconContainer>
-                                    <button style={{ border: "none" }} onClick={() => handleEdit(appointment)}><C.EditIcon /></button>
-                                    <button style={{ border: "none" }} onClick={() => handleRemove(appointment._id)}><C.TrashIcon /></button>
-                                    <button style={{ border: "none" }} onClick={() => handleCheckbox(appointment._id)}><C.SyncIcon /></button>
-                                </C.IconContainer>
-                            </C.TableCell>
-                        </C.TableRow>
-                    ))}
+                    {type === 'agendamentos' && data
+                        // Sort by date
+                        // .sort((a, b) => {
+                        //     const [hourA, minuteA] = a.hour.split(':').map(Number); // Converte "HH:mm" para números
+                        //     const [hourB, minuteB] = b.hour.split(':').map(Number);
+                        //     const timeA = hourA * 60 + minuteA; // Converte para minutos totais
+                        //     const timeB = hourB * 60 + minuteB;
+                        //     return timeA - timeB; // Ordena em ordem crescente
+                        // })
+                        .map((appointment, index) => (
+                            <C.TableRow key={index}>
+                                <C.TableCell>{new Date(appointment.date).toLocaleDateString("pt-BR", { timeZone: "UTC" })}</C.TableCell>
+                                <C.TableCell>{appointment.client_name}</C.TableCell>
+                                <C.TableCell>{appointment.hour}</C.TableCell>
+                                <C.TableCell>{appointment.barber.name}</C.TableCell>
+                                <C.TableCell>{`R$ ${appointment.service.reduce((acc, service) => acc + service.price, 0).toFixed(2).replace('.', ',')}`}</C.TableCell>
+                                <C.TableCell>{appointment.status}</C.TableCell>
+                                <C.TableCell>
+                                    <C.IconContainer>
+                                        <button style={{ border: "none" }} onClick={() => handleEdit(appointment)}><C.EditIcon /></button>
+                                        <button style={{ border: "none" }} onClick={() => handleRemove(appointment._id)}><C.TrashIcon /></button>
+                                        <button style={{ border: "none" }} onClick={() => handleCheckbox(appointment._id)}><C.SyncIcon /></button>
+                                    </C.IconContainer>
+                                </C.TableCell>
+                            </C.TableRow>
+                        ))
+                        .reverse()}
 
                     {type === 'serviços' && data.map((service, index) => (
                         <C.TableRow key={index}>

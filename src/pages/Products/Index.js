@@ -53,7 +53,7 @@ const Index = () => {
                         <C.SearchContainer>
                             <C.SearchIcon />
                             <C.SearchInput placeholder='Buscar produtos' />
-                            <C.AddButton onClick={togglePopup}>Adicionar</C.AddButton>
+                            <C.AddButton onClick={togglePopup}>Cadastrar produto</C.AddButton>
                         </C.SearchContainer>
                     </C.HeaderContainer>
                     {products ? <Table data={products} type='produtos' />: 'Carregando...'}

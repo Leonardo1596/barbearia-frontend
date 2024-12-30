@@ -219,8 +219,8 @@ const Index = ({ type, togglePopup, createProduct, createAppointment, createServ
                                         onChange={handleInputChange}
                                     >
                                         <option value="">Selecione</option>
-                                        {availableSlots.map((slot) => (
-                                            <option value={slot}>{slot}</option>
+                                        {availableSlots.map((slot, index) => (
+                                            <option key={index} value={slot}>{slot}</option>
                                         ))}
                                     </select>
                                 </C.FromGroup>
