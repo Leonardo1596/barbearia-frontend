@@ -104,6 +104,7 @@ const Index = ({ type, togglePopup, createProduct, createAppointment, createServ
             ...formData,
             services: selectedOptions
         });
+        console.log(formData.services);
         setPaymentStatus()
     };
 
