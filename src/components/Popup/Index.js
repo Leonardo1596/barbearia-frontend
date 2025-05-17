@@ -60,8 +60,8 @@ const Index = ({ type, togglePopup, createProduct, createAppointment, createServ
             if (dayName === 'domingo') {
                 console.log('Barbeiro não trabalha nesse dia');
                 alert('Este dia está indisponível');
-                formData.date === '';
-                formData.hour === '';
+                formData.date = '';
+                formData.hour = '';
                 return;
             }
 
