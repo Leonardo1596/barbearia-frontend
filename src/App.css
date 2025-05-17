@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.App {
+    background-color: #FAF5F7;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+}
+
+.Layout {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 60px)
+}
+
+.MainContent {
+    padding: 20px 0;
+    height: calc(100vh - 60px);
+    width: calc(100vw - 240px);
+    overflow-y: auto;
+  }
