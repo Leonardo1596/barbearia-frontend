@@ -72,3 +72,47 @@ export const AddButton = styled.button`
     margin-left: 20px;
     cursor: pointer;
 `;
+
+export const FiltersContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  max-width: 700px;
+  margin: 20px auto;
+`;
+
+export const Input = styled.input`
+  padding: 8px;
+  flex: 1 1 150px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+`;
+
+export const Select = styled.select`
+  min-width: 180px;
+  padding: 8px;
+  flex: 1 1 120px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+`;
+
+export const Button = styled.button`
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-size: 14px;
+
+  &:hover {
+    background-color:rgb(0, 91, 189);
+  }
+`;

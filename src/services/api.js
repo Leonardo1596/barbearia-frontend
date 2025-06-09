@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an Axios instance
 const api = axios.create({
-    baseURL: 'https://barbearia-backend-wf8p.onrender.com/', // Base URL of the API
+    baseURL: 'https://barbearia-backend-wf8p.onrender.com'
 });
 
 // Request interceptor: Automatically adds an authentication token
